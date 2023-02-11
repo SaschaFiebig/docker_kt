@@ -1,11 +1,18 @@
 
 Roadmap: 
 
-- Presentation
+- Add Presentation
     -> Fundametals
     -> Multi-Container applications
     -> Container Orchestration 
 
+- Add Cheat-Sheet 
+    -> What you need for working with docker
+    -> How to install and setup Docker
+    -> 
+
+
+- Make version in german?
 
 
 - Notes
