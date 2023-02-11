@@ -16,6 +16,40 @@ Roadmap:
 
 
 - Notes
+install docker 
+remove need to use sudo when using docker
+    sudo gpasswd -a $USER docker  # remove sudo need for docker command 
+    newgrp docker                 # restart docker group 
+check if docker is working
+    sudo systemctl status docker  # check docker daemon status
+    sudo systemctl start docker   # start docker daemon 
+    sudo systemctl enable docker  # OPTIONAL, will start docker daemon at system start 
+    docker run hello-world        # will pull and run hello-world
+write html for website 
+write docker file 
+build docker image with our code in it 
+    docker build -t <container_name> <path_to_container>
+check images 
+    docker images 
+start docker container 
+    docker run -d -p 80:80 <image_id>  # -d=daemon, -p=port, image_id can be gathered from the 'docker images' command
+check running containers 
+    docker ps 
+    docker ps -a  # to see when existing containers have been stopped 
+open local website running from the container by typing 'localhost' in our browser url field
+
+stop container 
+    docker stop <names | container_id>  # names & id can be found by using the 'docker ps -a' command
+to restart an existing container 
+    docker start <names | container_id>
+delete container
+    docker rm <names | container_id> 
+delete image 
+    docker rmi <repository | image_id>  # can be found by using 'docker images' 
+    
+
+
+
 
 
 
