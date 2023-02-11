@@ -1,0 +1,15 @@
+
+Roadmap: 
+
+- Presentation
+    -> Fundametals
+    -> Multi-Container applications
+    -> Container Orchestration 
+
+
+
+- Notes
+
+
+
+
