@@ -46,7 +46,11 @@ delete container
     docker rm <names | container_id> 
 delete image 
     docker rmi <repository | image_id>  # can be found by using 'docker images' 
-    
+
+open shell into our container 
+    docker exec -it <image | names> /bin/bash  # if bash does not work, use sh 
+
+
 
 
 
