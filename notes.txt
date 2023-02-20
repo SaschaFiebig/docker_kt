@@ -1,23 +1,40 @@
 
-Roadmap: 
+ROADMAP 
 
-- Add Presentation
+RANDOM
+# docker regestries 
+    https://hub.docker.com/   # public 
+    private docker registries: 
+        -> e.g: amazon ecr, google container regestriy, nexus, even dockerhub hase private regestries
+# docker registry vs repository
+    repositories are hosted by regestries
+    repositories are private or public 
+    regestriy: 
+        -> A service providing storage 
+        -> Can be hosted by yourself or a third party
+        -> Collection of repositories
+
+
+
+
+ADD PRESENTATION
     -> Fundametals
     -> Multi-Container applications
     -> Container Orchestration 
 
-- Add Cheat-Sheet 
+ADD DEMO 
+
+ADD CHEAT-SHEET 
     -> What you need for working with docker
     -> How to install and setup Docker
     -> 
 
+MAKE A VERSION IN GERMAN?
 
-- Make version in german?
 
-
-- Notes
+WORKFLOW NOTES 
 install docker 
-remove need to use sudo when using docker
+remove need to use sudo when using docker (needs restart for persistence)
     sudo gpasswd -a $USER docker  # remove sudo need for docker command 
     newgrp docker                 # restart docker group 
 check if docker is working
@@ -25,14 +42,16 @@ check if docker is working
     sudo systemctl start docker   # start docker daemon 
     sudo systemctl enable docker  # OPTIONAL, will start docker daemon at system start 
     docker run hello-world        # will pull and run hello-world
+
 write html for website 
 write docker file 
 build docker image with our code in it 
-    docker build -t <container_name> <path_to_container>
+    docker build -t <container_name> <path_to_dockerfile>
 check images 
     docker images 
 start docker container 
-    docker run -d -p 80:80 <image_id>  # -d=daemon, -p=port, image_id can be gathered from the 'docker images' command
+    docker run -d -p 80:80 <image_id>  
+        -> # -d=daemon, -p=port, image_id can be gathered from the 'docker images' command
 check running containers 
     docker ps 
     docker ps -a  # to see when existing containers have been stopped 
@@ -50,6 +69,53 @@ delete image
 open shell into our container 
     docker exec -it <image | names> /bin/bash  # if bash does not work, use sh 
 
+
+
+WORKFLOW MULTIPLE CONTAINERS 
+
+
+
+
+
+DOCKER COMMANDO INDEX  
+Images: 
+# show local images 
+    docker images 
+# pull image 
+    docker pull <image_name>
+# pull image of specified version 
+    docker pull <image_name>:<tag_number>
+# delete image
+    docker rmi <repository | image_id>
+
+Create custom docker images
+# overview 
+    Dockerfile -> Image -> Container 
+# build custom image from 'docker_demo_b'
+    1. 'cd' into 'docker_demo_b' 
+    2. execute 'docker build -t <image_name>:<tag_number> <path_to_Dockerfile>' 
+        e.g: docker build -t node-application:0.1 . 
+
+
+Containers: 
+# show running containers 
+    docker ps 
+# show running and stopped containers 
+    docker ps -a 
+# show application logs of running containers
+    docker logs <container_id>
+# run container ('run' will create a new container every time, use 'start' to reuse containers)
+    docker run <image_id>
+# run container as deamon, with specified port 
+    docker run -d -p 80:80 <image_id>  # -d=detached, -p=publish, 80:80=<host_port>:<container_port>
+# run container with specified container name 
+    docker run --name web-server -d -p 80:80 <image_id> 
+# stop container 
+    docker stop <container_id | names>
+# start container 
+    docker start <container_id | names>
+# delete container
+    docker rm <container_id | names>
 
 
 
